@@ -1,0 +1,30 @@
+# Build and binary outputs
+bin/
+obj/
+dist/
+
+# IDE and user-specific files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Database and runtime state
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+history.db
+history.db-wal
+history.db-shm
+
+# Diagnostics and dumps
+battery_dump.json
+test_dump.json
+real_dump.json
+dump.json
+*.corrupt.*
+*.tmp

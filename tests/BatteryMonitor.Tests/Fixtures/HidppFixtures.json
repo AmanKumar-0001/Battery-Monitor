@@ -1,0 +1,48 @@
+{
+  "fixtures": [
+    {
+      "name": "Logitech G Pro X Superlight - 85% Discharging",
+      "deviceIndex": 1,
+      "featureDiscoveryRequest": "1101000010000000000000000000000000000000",
+      "featureDiscoveryResponse": "1101000004000100000000000000000000000000",
+      "batteryStatusRequest": "1101041000000000000000000000000000000000",
+      "batteryStatusResponse": "1101041055000000000000000000000000000000",
+      "expectedPercentage": 85,
+      "expectedStatus": "Discharging",
+      "expectedIsAsleep": false
+    },
+    {
+      "name": "Logitech MX Master 3S - 60% Charging",
+      "deviceIndex": 1,
+      "featureDiscoveryRequest": "1101000010000000000000000000000000000000",
+      "featureDiscoveryResponse": "1101000003000100000000000000000000000000",
+      "batteryStatusRequest": "1101031000000000000000000000000000000000",
+      "batteryStatusResponse": "110103103C000100000000000000000000000000",
+      "expectedPercentage": 60,
+      "expectedStatus": "Charging",
+      "expectedIsAsleep": false
+    },
+    {
+      "name": "Logitech G915 - 100% Full",
+      "deviceIndex": 1,
+      "featureDiscoveryRequest": "1101000010000000000000000000000000000000",
+      "featureDiscoveryResponse": "1101000005000100000000000000000000000000",
+      "batteryStatusRequest": "1101051000000000000000000000000000000000",
+      "batteryStatusResponse": "1101051064000200000000000000000000000000",
+      "expectedPercentage": 100,
+      "expectedStatus": "Full",
+      "expectedIsAsleep": false
+    },
+    {
+      "name": "Logitech Mouse - Asleep State with Flag",
+      "deviceIndex": 1,
+      "featureDiscoveryRequest": "1101000010000000000000000000000000000000",
+      "featureDiscoveryResponse": "1101000004000100000000000000000000000000",
+      "batteryStatusRequest": "1101041000000000000000000000000000000000",
+      "batteryStatusResponse": "1101041050000080000000000000000000000000",
+      "expectedPercentage": 80,
+      "expectedStatus": "Discharging",
+      "expectedIsAsleep": true
+    }
+  ]
+}

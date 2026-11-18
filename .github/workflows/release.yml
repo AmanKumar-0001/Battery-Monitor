@@ -1,0 +1,31 @@
+name: BatteryMonitor-CI-CD
+on:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005ddab
+        with:
+          dotnet-version: '8.0.x'
+      - name: Verify Version
+        shell: pwsh
+        run: |
+          $t = "${{ github.ref_name }}".TrimStart('v')
+          $v = (& dotnet msbuild src/BatteryMonitor/BatteryMonitor.csproj -getProperty:Version).Trim()
+          if ($t -ne $v) { exit 1 }
+      - name: Build and Package
+        shell: pwsh
+        run: .\build.ps1
+      - name: Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $ver = "${{ github.ref_name }}".TrimStart('v')
+          gh release create "${{ github.ref_name }}" dist/* --title "Battery Monitor v$ver" --generate-notes
